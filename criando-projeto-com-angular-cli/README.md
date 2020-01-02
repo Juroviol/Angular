@@ -65,6 +65,27 @@ ng serve --port=8080
 
 Pronto! A aplicação estará rodando agora na porta 8080: http://localhost:8080.
 
+## Realizando build da aplicação para deploy em ambiente produtivo
+
+Em [Rodando a aplicação criada](#Rodando a aplicação criada) nós vimos como inicializar um pequeno servidor HTML para conseguirmos visualizar nossa aplicação executando no navegador, no entanto para instalarmos nossa aplicação em algum servidor Web real é preciso que executamos um comando NPM para que a nossa aplicação possa ser montada de forma que esteja pronta para ser instalada. Como a nossa aplicação Angular é construída em fontes na linguagem TypeScript, precisamos de um procedimento que "traduza" esse fonte de TypeScript para JavaScript, uma vez que os navegadores, mesmos os mais modernos, não interpretam o TypeScript e sim JavaScript apenas. Dessa forma, a nosssa aplicação em sua forma original de construção não está preparada para rodar no navegador dos nossos usuários. 
+
+Esse mesmo procedimento de "tradução" é realizado quando rodamos o comando `ng serve`, contudo o propósito deste comando é realizar os procedimentos necessários em contexto de **desenvolvimento** e disponibilizar um sevidor HTML leve para visualizarmos a nossa aplicação. 
+
+Portanto, para o propósito de disponibilizar a nossa aplicação em um servidor Web real (produtivo ou homologador por exemplo) utilizaremos o comando abaixo para que o Angular CLI possa realizar todos os procedimentos necessários para que a nossa aplicação esteja pronta para ser instalada em um servidor Web:
+
+```
+npm run build
+```
+
+O comando NPM acima irá executar o script que está especificado no arquivo `package.json`:
+
+```
+{
+}
+```
+
+O que esse script faz está especificado em forma de configuração no arquivo `angular.json`que pode ser encontrado na raíz do nosso projeto recem criado. Mas de forma resumida, é realizado a "tradução" e a preparação dos arquivos de forma que eles contenham menos tamanho (para tornar mais performático) e que contenham o código ofuscado, para que os usuários não consigam entender o que a aplicação faz.
+
 ___
 
 Para entendimento dos conceitos de uma aplicação em Angular pode acessar este link no qual é explicado os conceitos de componentes, templates, rotas, pipes e etc.
