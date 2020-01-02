@@ -45,7 +45,7 @@ Na sequência o objetivo de cada parâmetro:
 |minimal|Quando verdadeiro, cria um projeto sem nenhum framework de testes|
 |skipGit|Quando verdadeiro, não inicializa um repositório git|
 |skipTests|Quando verdadeiro, não gera arquivos "spec.ts" no novo projeto|
-|skipInstall|Quando verdadeiro, após a criação do projeto não isntala as dependências NPM|
+|skipInstall|Quando verdadeiro, após a criação do projeto não instala as dependências NPM|
 
 ## Rodando a aplicação criada
 
