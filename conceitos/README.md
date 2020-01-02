@@ -68,5 +68,10 @@ Um "declarável" deve pertencer a somente um módulo, então só o declare em um
 Apenas classes com a anotação @NgModule são especificadas na propriedade "imports".
 
 ### Imports
+
+A propriedade "imports" aparece exclusivamente no objeto metadata da anotação @NgModule. Ela diz ao Angular sobre os outros módulos que o módulo em questão precisa para funcionar.
+
+Os módulo especificados nessa propriedade são os módulos que exportam componentes, diretivas ou "pipes" que templates de componentes do módulo que os declaram, referenciam. Um exemplo é o caso do componente AppComponent, o qual referencia componentes, diretivas, ou "pipes" dos módulos BrowserModule, FormsModule, or HttpClientModule. Um template de componente pode referenciar um componente, diretiva, ou "pipe" quando a classe referenciada é declarada no módulo que o referencia ou quando a classe é importada a partir de outro módulo.
+
 ### Providers
 ### Bootstrap
