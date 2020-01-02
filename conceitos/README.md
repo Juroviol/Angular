@@ -49,7 +49,7 @@ Você deve declarar cada componente em no máximo uma classe NgModule. Se você 
 
 A propriedade declarations apenas aceita "declaráveis". "Declaráveis" são componentes, diretivas e "pipes". Todos esses tipos de "declaráveis" devem estar especificados na propriedade declarations do módulo. "Declaráveis" devem pertencer a um módulo somente. O compilador emite erros se for tentado declarar uma mesma classe "declarável" em mais de um módulo.
 
-*Essas classes declaradas ficam visiveis para todos os componentes do módulo mas invisiveis para componentes em outros módulos a não ser que as mesmas sejam exportadas no módulo e o módulo seja importado em outro módulo*.
+**Essas classes declaradas ficam visiveis para todos os componentes do módulo mas invisiveis para componentes em outros módulos a não ser que as mesmas sejam exportadas no módulo e o módulo seja importado em outro módulo**.
 
 Um exemplo de utilização da propriedade "declarations":
 
