@@ -6,8 +6,9 @@
     - [Providers](#providers)
     - [Bootstrap](#bootstrap)
 - [Component](#component)
-    - [Input](#input)
-    - [Output](#output)
+    - [Comunicação entre componentes](#comunicacao-entre-componentes)
+        - [Input](#input)
+        - [Output](#output)
 - Routes
 
 ## NgModule
