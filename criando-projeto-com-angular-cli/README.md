@@ -99,4 +99,4 @@ Após toda a execução do processo, se tudo ocorrer com sucesso, é disponibili
 
 ___
 
-Para entendimento dos conceitos de uma aplicação em Angular pode acessar este link no qual é explicado os conceitos de componentes, templates, rotas, pipes e etc.
+Para entendimento dos conceitos de uma aplicação em Angular pode acessar este link no qual é explicado os conceitos de componentes, templates, rotas, pipes e outras informações relevantes.
