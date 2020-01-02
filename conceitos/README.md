@@ -63,6 +63,10 @@ declarations: [
 ...
 ```
 
+Um "declarável" deve pertencer a somente um módulo, então só o declare em um @NgModule. Quando precisar adicionar em outro, importe o módulo em questão que possui o "declarável" declarado.
+
+Apenas classes com a anotação @NgModule são especificadas na propriedade "imports".
+
 ### Imports
 ### Providers
 ### Bootstrap
