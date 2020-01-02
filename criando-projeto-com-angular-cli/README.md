@@ -2,6 +2,12 @@
 
 O Angular CLI é uma ferramenta de linha de comando que você usa para inicializar, desenvolver e manter aplicações em Angular. Você pode usar a ferramenta diretamente por um terminal de linha de comando, ou com uma interface gráfica interativa como o Angular Console, o qual não abordaremos nesse momento.
 
+- Pré-Requisitos
+- Instalando a ferramenta
+- Criando uma aplicação
+- Rodando a aplicação criada
+- Realizando build da aplicação para deploy em ambiente produtivo
+
 ## Pré-Requisitos
 
 - [NPM](https://nodejs.org/pt-br/download/)
