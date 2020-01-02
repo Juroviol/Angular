@@ -113,7 +113,10 @@ O Angular CLI gera diversos arquivos, sendo alguns essenciais para a aplicação
 |---|---|
 |tsconfig.json|Contêm informações para a compilação do TypeScript para JavaScript. Podemos especificar nesse arquivos quais arquivos devem ser excluídos da compilação, qual a versão de JavaScript que queremos e etc.|
 |package.json|Esse arquivo não está diretamente relacionado ao Angular, é nesse arquivo que especificamos as bibliotecas que nosso projeto irá utilizar. No caso, diversas bibliotecas angular. Mas podemos incluir novas bibliotecas de terceiros para agilizar a construção de nossa aplicação, como biblioteca de componentes visuais, por exemplo.|
-|angular.json|Esse arquivo é utilizado pelo Angular CLI. Esse arquivo é diretamente ligado ao Angular CLI e sem ele nós não conseguimos utilizar a ferramenta para manter a nossa aplicação. É nesse arquivo que está especificado diversas configurações de como nossa aplicação será empacotada quando realizarmos o build. Antigamente o build de aplicações Angular era feito com biblioteca de terceiros como grunt, gulp e webpack nos quais eram confifgurados diversos arquivos trazendo uma grande complexidade.
+|angular.json|Esse arquivo é utilizado pelo Angular CLI. Esse arquivo é diretamente ligado ao Angular CLI e sem ele nós não conseguimos utilizar a ferramenta para manter a nossa aplicação. É nesse arquivo que está especificado diversas configurações de como nossa aplicação será empacotada quando realizarmos o build. Antigamente o build de aplicações Angular era feito com biblioteca de terceiros como grunt, gulp e webpack nos quais eram confifgurados diversos arquivos trazendo uma grande complexidade.|
+|polyfills.ts|Esse arquivo importa diversos linhas de código que fazem a aplicação compatível para diferentes navegadores. Os códigos escritos em Angular em sua maioria em ES6 o qual não é compatível com o IE ou firefox e necessita de alguns ajustes de ambiente.
+
+Angular é construído nos mais recentes padrões de desenvolvimento web. Atingir uma grande quantidade de navegadores é desafiador pois eles não suportam todas as funcionalidades dos navegadores mais modernos.|
 
 ## Incluindo jQuery
 
