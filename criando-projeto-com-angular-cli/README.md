@@ -8,6 +8,7 @@ O Angular CLI é uma ferramenta de linha de comando que você usa para inicializ
 - [Rodando a aplicação criada](#rodando-a-aplicação-criada)
 - [Realizando build da aplicação para deploy em ambiente produtivo](#realizando-build-da-aplicação-para-deploy-em-ambiente-produtivo)
 - [Arquivos importantes](#arquivos-importantes)
+- [Incluindo jQuery](#incluindo-jquery)
 
 ## Pré-Requisitos
 
@@ -114,6 +115,34 @@ O Angular CLI gera diversos arquivos, sendo alguns essenciais para a aplicação
 |package.json|Esse arquivo não está diretamente relacionado ao Angular, é nesse arquivo que especificamos as bibliotecas que nosso projeto irá utilizar. No caso, diversas bibliotecas angular. Mas podemos incluir novas bibliotecas de terceiros para agilizar a construção de nossa aplicação, como biblioteca de componentes visuais, por exemplo.|
 |angular.json|Esse arquivo é utilizado pelo Angular CLI. Esse arquivo é diretamente ligado ao Angular CLI e sem ele nós não conseguimos utilizar a ferramenta para manter a nossa aplicação. É nesse arquivo que está especificado diversas configurações de como nossa aplicação será empacotada quando realizarmos o build. Antigamente o build de aplicações Angular era feito com biblioteca de terceiros como grunt, gulp e webpack nos quais eram confifgurados diversos arquivos trazendo uma grande complexidade.
 
+## Incluindo jQuery
+
+Para incluir o jQuery ao projeto para ser utilizado nos componentes e ou templates HTML primeiro vamos instalar a dependência NPM na nossa aplicação executando:
+
+```
+npm install jquery --save
+npm install @types/jquery --save
+```
+Então no arquivo `angular.json` em "build" e "scripts" realizar a seguinte inclusão:
+
+```
+"scripts": [
+  "node_modules/jquery/dist/jquery.min.js"
+]
+```
+
+Então no arquivo `tsconfig.app.json` em "types" incluir:
+
+```
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/app",
+    "types": ["jquery"] // add here
+  },
+  ...
+}
+```
 ___
 
 Para entendimento dos conceitos de uma aplicação em Angular pode acessar este [link](../conceitos/README.md) no qual é explicado os conceitos de componentes, templates, rotas, pipes e outras informações relevantes.
