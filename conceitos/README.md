@@ -5,9 +5,9 @@
     - [Imports](#imports)
     - [Providers](#providers)
     - [Bootstrap](#bootstrap)
-- Component
-    - Input
-    - Output
+- [Component](#component)
+    - [Input](#input)
+    - [Output](#output)
 - Routes
 
 ## NgModule
@@ -100,3 +100,9 @@ import { AppModule } from './app/app.module';
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
 ```
+
+## Component
+
+### Input
+
+### Output
