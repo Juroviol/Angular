@@ -6,7 +6,7 @@
     - [Providers](#providers)
     - [Bootstrap](#bootstrap)
 - [Component](#component)
-    - [Comunicação entre componentes](#comunicacao-entre-componentes)
+    - [Comunicação entre componentes](#comunicação-entre-componentes)
         - [Input](#input)
         - [Output](#output)
 - Routes
