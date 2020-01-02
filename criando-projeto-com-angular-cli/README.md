@@ -116,4 +116,4 @@ O Angular CLI gera diversos arquivos, sendo alguns essenciais para a aplicação
 
 ___
 
-Para entendimento dos conceitos de uma aplicação em Angular pode acessar este link no qual é explicado os conceitos de componentes, templates, rotas, pipes e outras informações relevantes.
+Para entendimento dos conceitos de uma aplicação em Angular pode acessar este [link](../conceitos/README.md) no qual é explicado os conceitos de componentes, templates, rotas, pipes e outras informações relevantes.
