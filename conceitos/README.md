@@ -5,6 +5,9 @@
     - [Imports](#imports)
     - [Providers](#providers)
     - [Bootstrap](#bootstrap)
+- Component
+    - Input
+    - Output
 
 ## NgModule
 
