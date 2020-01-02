@@ -71,7 +71,7 @@ Em [Rodando a aplicação criada](#rodando-a-aplicação-criada) nós vimos como
 
 Como a nossa aplicação Angular é construída em fontes na linguagem TypeScript, precisamos de um procedimento que "traduza" esse fonte de TypeScript para JavaScript, uma vez que os navegadores, mesmos os mais modernos, não interpretam o TypeScript e sim JavaScript apenas. Dessa forma, a nossa aplicação, em sua forma original de construção, ou seja, com fontes TypesScript, não está preparada para rodar no navegador dos nossos usuários. 
 
-Esse mesmo procedimento de "tradução" é realizado quando rodamos o comando `ng serve`, contudo o propósito deste comando é realizar os procedimentos necessários em contexto de **desenvolvimento** e disponibilizar um sevidor HTML leve para visualizarmos a nossa aplicação. 
+Esse mesmo procedimento de "tradução" é realizado quando rodamos o comando `ng serve`, contudo o propósito deste comando é realizar os procedimentos necessários em contexto de **desenvolvimento** e disponibilizar um servidor HTML leve para visualizarmos a nossa aplicação. 
 
 Portanto, para o propósito de disponibilizar a nossa aplicação em um servidor Web real (produtivo ou homologador por exemplo) utilizaremos o comando abaixo para que o Angular CLI possa realizar todos os procedimentos necessários para que a nossa aplicação esteja pronta para ser instalada em um servidor Web:
 
