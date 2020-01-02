@@ -83,10 +83,19 @@ O comando NPM acima irá executar o script que está especificado no arquivo `pa
 
 ```
 {
-}
+  ...
+  "scripts": {
+    ...
+    "build": "ng build",
+    ...
+   }
+   ...
+ }
 ```
 
-O que esse script faz está especificado em forma de configuração no arquivo `angular.json`que pode ser encontrado na raíz do nosso projeto recem criado. Mas de forma resumida, é realizado a "tradução" e a preparação dos arquivos de forma que eles contenham menos tamanho (para tornar mais performático) e que contenham o código ofuscado, para que os usuários não consigam entender o que a aplicação faz.
+Basicamente nosso comando `npm run build` invoca o comando `ng build` do Angular CLI, o que esse comando faz está especificado em forma de configuração no arquivo `angular.json` que pode ser encontrado na raíz do nosso projeto recem criado. Mas de forma resumida: é realizado a "tradução" e a preparação dos arquivos de forma que eles contenham menos tamanho (para tornar mais performático) e que contenham o código ofuscado, para que os usuários não consigam entender o que a nossa aplicação faz.
+
+Após toda a execução do processo, se tudo ocorrer com sucesso, é disponibilizado um diretório contendo todo a nossa aplicação traduzida, compactada e ofuscada. Esse diretório de saída está configurado também no arquivo `angular.json`, o qual, geralmente é chamado "dist". É os arquivos desse diretório que deverão ser instalados no servidor Web desejado.
 
 ___
 
