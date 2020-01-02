@@ -8,6 +8,7 @@
 - Component
     - Input
     - Output
+- Routes
 
 ## NgModule
 
