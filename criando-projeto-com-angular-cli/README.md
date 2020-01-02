@@ -7,6 +7,7 @@ O Angular CLI é uma ferramenta de linha de comando que você usa para inicializ
 - [Criando uma aplicação](#criando-uma-aplicação)
 - [Rodando a aplicação criada](#rodando-a-aplicação-criada)
 - [Realizando build da aplicação para deploy em ambiente produtivo](#realizando-build-da-aplicação-para-deploy-em-ambiente-produtivo)
+- [Arquivos importantes](#arquivos-importantes)
 
 ## Pré-Requisitos
 
@@ -102,6 +103,16 @@ O comando NPM acima irá executar o script que está especificado no arquivo `pa
 Basicamente nosso comando `npm run build` invoca o comando `ng build` do Angular CLI, o que esse comando faz está especificado em forma de configuração no arquivo `angular.json` que pode ser encontrado na raíz do nosso projeto recem criado. Mas de forma resumida: é realizado a "tradução" e a preparação dos arquivos de forma que eles contenham menos tamanho (para tornar mais performático) e que contenham o código ofuscado, para que os usuários não consigam entender o que a nossa aplicação faz.
 
 Após toda a execução do processo, se tudo ocorrer com sucesso, é disponibilizado um diretório contendo todo a nossa aplicação traduzida, compactada e ofuscada. Esse diretório de saída está configurado também no arquivo `angular.json`, o qual, geralmente é chamado "dist". É os arquivos desse diretório que deverão ser instalados no servidor Web desejado.
+
+## Arquivos importantes
+
+O Angular CLI gera diversos arquivos, sendo alguns essenciais para a aplicação:
+
+|Nome|Descrição|
+|---|---|
+|tsconfig.json|Contêm informações para a compilação do TypeScript para JavaScript. Podemos especificar nesse arquivos quais arquivos devem ser excluídos da compilação, qual a versão de JavaScript que queremos e etc.|
+|package.json|Esse arquivo não está diretamente relacionado ao Angular. É nesse arquivos que especificamos as bibliotecas que nosso projeto irá utilizar. No caso, diversas bibliotecas angular. Mas podemos incluir novas bibliotecas de terceiros para agilizar a construção de nossa aplicação, como biblioteca de componentes visuais por exemplo.|
+|angular.json|Esse arquivo é utilizado pelo Angular CLI, esse arquivo é diretamente ligado ao Angular CLI e sem ele nós não conseguimos utilizar a ferramenta para manter a nossa aplicação. É nesse arquivo que está especificado diversas configurações de como nossa aplicação será empacotada quando realizarmos o build.|
 
 ___
 
