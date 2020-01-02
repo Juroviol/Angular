@@ -104,6 +104,8 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 
 ## Component
 
-### Input
+### Comunicação entre componentes
 
-### Output
+#### Input
+
+#### Output
