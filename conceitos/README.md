@@ -78,3 +78,21 @@ Os módulos especificados nessa propriedade são os módulos que exportam compon
 A propriedade "providers" é onde se declara as "services" que a aplicação precisa. Quando é declarado as "services" nesta propriedade elas estão disponíveis para toda a aplicação. As "services" são classes que possuem a anotação @Injectable os quais possuem métodos com lógicas de negócios e de busca de dados a um back-end.
 
 ### Bootstrap
+
+A aplicação se inicia a partir de um proceddo chamado "bootstraping" a partir do ponto de entrada que é também conhecidade como entryComponent. Além de realizar outras funções, o processo de inicialização cria os componentes declarados na propriedade e insere cada um dele no DOM do navegador.
+
+Cada componente criado e inicializado possui sua própria árvore de componentes. Inserindo um componente criado e inicializado geralmente dispara um processo em cascata de criação de componentes que formam a árvore.
+
+Você pode até declarar mais de uma árvore de componentes na sua página, mas a maioria das aplicações possuirá apenas uma árvore de componentes que será inicializada a partir do componente principal ou raíz.
+
+Esse componente raíz é geralmente chamado AppComponent e é ele que declaramos na propriedade "bootstrap".
+
+O processo de "bootstraping" pode ser observado no código abaixo, geralmente declarado no arquivo `main.ts`.
+
+```
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './app/app.module';
+
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.error(err));
+```
