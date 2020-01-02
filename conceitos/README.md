@@ -4,7 +4,7 @@
     - [Declarations](#declarations)
     - [Imports](#imports)
     - [Providers](#providers)
-    - [Boostrap](#bootstrap)
+    - [Bootstrap](#bootstrap)
 
 ## NgModule
 
