@@ -111,8 +111,8 @@ O Angular CLI gera diversos arquivos, sendo alguns essenciais para a aplicação
 |Nome|Descrição|
 |---|---|
 |tsconfig.json|Contêm informações para a compilação do TypeScript para JavaScript. Podemos especificar nesse arquivos quais arquivos devem ser excluídos da compilação, qual a versão de JavaScript que queremos e etc.|
-|package.json|Esse arquivo não está diretamente relacionado ao Angular. É nesse arquivos que especificamos as bibliotecas que nosso projeto irá utilizar. No caso, diversas bibliotecas angular. Mas podemos incluir novas bibliotecas de terceiros para agilizar a construção de nossa aplicação, como biblioteca de componentes visuais por exemplo.|
-|angular.json|Esse arquivo é utilizado pelo Angular CLI, esse arquivo é diretamente ligado ao Angular CLI e sem ele nós não conseguimos utilizar a ferramenta para manter a nossa aplicação. É nesse arquivo que está especificado diversas configurações de como nossa aplicação será empacotada quando realizarmos o build.|
+|package.json|Esse arquivo não está diretamente relacionado ao Angular, é nesse arquivo que especificamos as bibliotecas que nosso projeto irá utilizar. No caso, diversas bibliotecas angular. Mas podemos incluir novas bibliotecas de terceiros para agilizar a construção de nossa aplicação, como biblioteca de componentes visuais, por exemplo.|
+|angular.json|Esse arquivo é utilizado pelo Angular CLI. Esse arquivo é diretamente ligado ao Angular CLI e sem ele nós não conseguimos utilizar a ferramenta para manter a nossa aplicação. É nesse arquivo que está especificado diversas configurações de como nossa aplicação será empacotada quando realizarmos o build. Antigamente o build das aplicações era feito com biblioteca de terceiros como grunt, gulp e webpack nos quais eram confifgurados diversos arquivos trazendo uma grande complexidade.
 
 ___
 
