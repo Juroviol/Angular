@@ -79,7 +79,7 @@ A propriedade "providers" é onde se declara as "services" que a aplicação pre
 
 ### Bootstrap
 
-A aplicação se inicia a partir de um proceddo chamado "bootstraping" a partir do ponto de entrada que é também conhecidade como entryComponent. Além de realizar outras funções, o processo de inicialização cria os componentes declarados na propriedade e insere cada um dele no DOM do navegador.
+A aplicação Angular se inicia a partir de um processo chamado "bootstraping" a partir do ponto de entrada que é também conhecido como entryComponent. Além de realizar outras funções, o processo de inicialização cria os componentes declarados na propriedade e insere cada um dele no DOM do navegador.
 
 Cada componente criado e inicializado possui sua própria árvore de componentes. Inserindo um componente criado e inicializado geralmente dispara um processo em cascata de criação de componentes que formam a árvore.
 
