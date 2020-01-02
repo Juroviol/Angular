@@ -108,7 +108,9 @@ Componentes são classes com a anotação @Component que atuam como controles de
 
 Os conteúdos das propriedades são exibidos na tela através de páginas HTML associadas ao componente.
 
-Um componente pode ser uma página inteira em HTML de uma aplicação ou site ou uma pequena porção de HTML com objetivos muito específicos. A ideia principal dos componentes é que eles possam ser construídos para serem reutilizados por diversas partes da aplicação ou site.
+Um componente pode ser uma página inteira em HTML de uma aplicação ou site ou uma pequena porção de HTML com objetivos muito específicos. 
+
+A ideia principal dos componentes é que eles possam ser construídos para serem reutilizados por diversas partes da aplicação ou site.
 
 ### Comunicação entre componentes
 
