@@ -152,6 +152,12 @@ O endereço relativo ao componente onde se encontra o template HTML. Uma outra f
 
 #### Styles
 
+Para cada componente Angular criado, você pode definir não somente o template HTML, mas também os estilos CSS que estejam relacionados ao template, especificando seletores, regras e medias que for preciso.
+
+A propriedade "styles" é uma maneira de contemplar isso. A propriedade recebe uma lista de "string" que contenham código CSS.
+
+**Os estilos especificados no objeto metadata da anotação @Component se aplicam somente ao template do componente. Os estilos não reflitirão em componentes filhos ou em demais componentes irmãos ou pais**.
+
 #### Providers <a id="providers-component"></a>
 
 A propriedade especifica uma lista de services que o componente necessita. Nessa propriedade só pode ser especificado classes que sejam identificadas pela anotação @Injectable(). 
