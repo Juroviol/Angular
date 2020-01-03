@@ -16,6 +16,7 @@
     - [Comunicação entre componentes](#comunicação-entre-componentes)
         - [Input](#input)
         - [Output](#output)
+- [Data binding](#databinding)
 - Routes
 
 ## NgModule
@@ -171,3 +172,7 @@ Para que uma service esteja disponível para ser injetado em qualquer componente
 #### Input
 
 #### Output
+
+## Data binding
+
+Sem um framework, você seria responsável por colocar os dados provenientes de serviços no HTML, controlar as atualizações desses dados e obter os dados a partir de ações dos usuários. Escrever código para controlar isso manualmente é tedioso, suscetível a erros e um pesadelo de entender como qualquer desenvolvedor experiente de front-end JavaScript pode afirmar.
