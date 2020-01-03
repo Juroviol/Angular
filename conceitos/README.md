@@ -140,7 +140,7 @@ export class AppComponent {
 
 #### Selector
 
-Um seletor CSS que diz ao Angular para criar e inserir uma instância deste componente onde for encontrada a tag correspondente pelos templates HTML da aplicação. Por exemplo, se uma página HTML contém a tag <app-hero-list></app-hero-list>, então o Angular insere uma instância do componente correspondente entre as tags declaradas.
+Um seletor CSS que diz ao Angular para criar e inserir uma instância deste componente onde for encontrada a tag correspondente pelos templates HTML da aplicação. Por exemplo, se uma página HTML contém a tag `<app-hero-list></app-hero-list>`, então o Angular insere uma instância do componente correspondente entre as tags declaradas.
 
 #### Template
 
