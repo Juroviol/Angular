@@ -1,7 +1,7 @@
 # Conceitos
 
 - [NgModule](#ngmodule)
-    - [Metadata](#metadata)
+    - [Metadata](#metadata-ngmodule)
         - [Declarations](#declarations)
         - [Imports](#imports)
         - [Providers](#providers)
