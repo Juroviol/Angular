@@ -140,13 +140,23 @@ export class AppComponent {
 
 #### Selector
 
+A CSS selector that tells Angular to create and insert an instance of this component wherever it finds the corresponding tag in template HTML. For example, if an app's HTML contains <app-hero-list></app-hero-list>, then Angular inserts an instance of the HeroListComponent view between those tags.
+
 #### Template
 
 #### Template URL
 
+The module-relative address of this component's HTML template. Alternatively, you can provide the HTML template inline, as the value of the template property. This template defines the component's host view.
+
 #### Styles
 
 #### Providers <a id="providers-component"></a>
+
+A propriedade especifica uma lista de services que o componente necessita. Nessa propriedade só pode ser especificado classes que sejam identificadas pela anotação @Injectable(). 
+
+As services especificadas nessa propriedade, no contexto de componente, só estará disponível para ser injetado no construtor desse componente, caso seja injetado no construtor de outro componente sem declará-lo na propriedade "providers" do componente em questão, o Angular lançará mensagem de erro. 
+
+Para que uma service esteja disponível para ser injetado em qualquer componente, é preciso declará-lo na propriedade "providers" do módulo.
 
 ### Comunicação entre componentes
 
