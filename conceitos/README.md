@@ -144,9 +144,11 @@ Um seletor CSS que diz ao Angular para criar e inserir uma instância deste comp
 
 #### Template
 
+O HTML que servirá como template para ser renderizado na tela onde o componente for referenciado. A especificação do HTML aqui se dá como uma string. No entanto é recomendável que se utilize a propriedade [templateURL](#template-url), pois divide as responsabilidades, tornando a aplicação mais organizada e modularizada.
+
 #### Template URL
 
-O endereço relativo ao componente onde se encontra o template HTML. Uma outra forma de prover um template de HTML é através da propriedade `template`, dessa forma o HTML pode ser especificado diretamente na propriedade não precisando criar um arquivo.
+O endereço relativo ao componente onde se encontra o template HTML. Uma outra forma de prover um template de HTML é através da propriedade [template](#template), dessa forma o HTML pode ser especificado diretamente na propriedade não precisando criar um arquivo.
 
 #### Styles
 
@@ -156,7 +158,7 @@ A propriedade especifica uma lista de services que o componente necessita. Nessa
 
 As services especificadas nessa propriedade, no contexto de componente, só estarão disponível para ser injetado no construtor desse componente, caso seja injetado no construtor de outro componente sem declará-lo na propriedade "providers" do componente em questão, o Angular lançará mensagem de erro. 
 
-Para que uma service esteja disponível para ser injetado em qualquer componente, é preciso declará-lo na propriedade "providers" do módulo.
+Para que uma service esteja disponível para ser injetado em qualquer componente, é preciso declará-lo na propriedade ["providers"](#providers-module) do módulo.
 
 ### Comunicação entre componentes
 
