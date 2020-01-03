@@ -48,7 +48,7 @@ Após as linhas de importação podemos ver a classe com a anotação @NgModule.
 
 A anotação @NgModule identifica a classe AppModule como um NgModule. @NgModule recebe como parâmetro um objeto metadata que diz ao Angular como compilar e executar a aplicação.
 
-### Metadata
+### Metadata <a id="metadata-ngmodule"></a>
 
 #### Declarations
 
