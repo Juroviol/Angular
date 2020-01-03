@@ -154,7 +154,7 @@ O endereço relativo ao componente onde se encontra o template HTML. Uma outra f
 
 A propriedade especifica uma lista de services que o componente necessita. Nessa propriedade só pode ser especificado classes que sejam identificadas pela anotação @Injectable(). 
 
-As services especificadas nessa propriedade, no contexto de componente, só estará disponível para ser injetado no construtor desse componente, caso seja injetado no construtor de outro componente sem declará-lo na propriedade "providers" do componente em questão, o Angular lançará mensagem de erro. 
+As services especificadas nessa propriedade, no contexto de componente, só estarão disponível para ser injetado no construtor desse componente, caso seja injetado no construtor de outro componente sem declará-lo na propriedade "providers" do componente em questão, o Angular lançará mensagem de erro. 
 
 Para que uma service esteja disponível para ser injetado em qualquer componente, é preciso declará-lo na propriedade "providers" do módulo.
 
