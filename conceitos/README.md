@@ -208,6 +208,113 @@ export class Parent {
 
 #### Output
 
+Nos exemplos acima vimos como passar uma informação do componente pai para o componente filho utilizando o "binding" de propriedade. E quando precisamos passar alguma informação do componente filho para o pai? Nesse caso utilizaremos o "binding" de evento, no qual o pai ficará escutando por eventos emitidos pelo filho. 
+
+Abaixo podemos ver o componente filho o qual renderiza através do template HTML um campo para preenchimento de texto. Para passar para o componente pai a informação que será digitada nesse campo: declaramos uma propriedade cuja classe é `EventEmitter` o qual possui um método `emit` que irá comunicar o componente pai que estará escutando por mudanças através do "binding" de propriedade. 
+
+```
+...
+@Component({
+    selector: 'child',
+    template:'<input [(ngModel)]="informacao" (input)="inputChanged()"></span>'
+})
+export class Child {
+
+    private informacao : string;
+
+    @Output()
+    private informacaoChange : EventEmitter<any> = new EventEmitter<any>();
+    
+    inputChanged() : void {
+        this.informacaoChange.emit(this.informacao);
+    }
+
+}
+...
+```
+
+Quando o campo é preenchido é invocado o método `inputChanged`, graças ao "binding" de evento `(input)` oferecido pelo próprio Angular nos campos HTML. Ao invocar o método `inputChanged` então invocamos o método `emit` da variável `inputChange` passando a informação armazenada na propriedade `informacao` o qual foi preenchida graças a diretiva `ngModel` do campo.
+
+No referência do componente filho no componente pai declaramos um "binding" de evento no evento anteriormente declarado no filho: `informacaoChange` com a anotação @Output. 
+
+```
+...
+@Component({
+    selector: 'parent',
+    template: '<child (informacaoChange)="atualizarDado($event)"></child>'
+})
+export class Parent {
+
+    private dado : string;
+    
+    atualizarDado(dado : string) : void {
+        this.dado = dado;
+    }
+
+}
+...
+```
+
+Quando o dado é preenchido no filho é então invocado o método `atualizarInformacao` do componente pai recebendo o valor e associando a propriedade `dado` do componente pai. 
+
+Podemos modificar ainda no componente pai o nome do evento `(informacaoChange)` do "binding" de evento para apenas `(informacao)` pois o Angular sabe que toda variável declarada no componente do tipo `EventEmitter` e com a anotação @Output com o nome pode ser referenciado apenas com o nome excluído da palavra "Change".  
+
+```
+...
+@Component({
+    selector: 'parent',
+    template: '<child (informacao)="atualizarDado($event)"></child>'
+})
+export class Parent {
+
+    private dado : string;
+    
+    atualizarDado(dado : string) : void {
+        this.dado = dado;
+    }
+
+}
+...
+```
+
+A modificação acima mencionada nos trás a possibilidade de termos o two-way binding na propriedade `dado` do componente pai, de forma que qualquer alteração na propriedade `dado` no componente pai, reflita na propriedade `informacao` do componente filho e vice-versa. Para isso precisamos voltar a incluir a anotação @Input na propriedade `informacao` do componente filho e remover o método `atualizarDado` do componente pai, para que possamos obter o two-way binding.
+
+```
+...
+@Component({
+    selector: 'child',
+    template:'<input [(ngModel)]="informacao" (input)="inputChanged()"></span>'
+})
+export class Child {
+
+    private informacao : string;
+
+    @Output()
+    private informacaoChange : EventEmitter<any> = new EventEmitter<any>();
+    
+    inputChanged() : void {
+        this.informacaoChange.emit(this.informacao);
+    }
+
+}
+...
+```
+
+```
+...
+@Component({
+    selector: 'parent',
+    template: '<child [(informacao)]="dado"></child>'
+})
+export class Parent {
+
+    private dado : string;
+
+}
+...
+```
+
+
 ## Data binding
 
 Sem um framework, você seria responsável por colocar os dados provenientes de serviços no HTML, controlar as atualizações desses dados e obter os dados a partir de ações dos usuários. Escrever código para controlar isso manualmente é tedioso, suscetível a erros e um pesadelo de entender como qualquer desenvolvedor experiente de front-end JavaScript pode afirmar.
