@@ -210,7 +210,7 @@ export class Parent {
 
 Nos exemplos acima vimos como passar uma informação do componente pai para o componente filho utilizando o "binding" de propriedade. E quando precisamos passar alguma informação do componente filho para o pai? Nesse caso utilizaremos o "binding" de evento, no qual o pai ficará escutando por eventos emitidos pelo filho. 
 
-Abaixo podemos ver o componente filho o qual renderiza através do template HTML um campo para preenchimento de texto. Para passar para o componente pai a informação que será digitada nesse campo: declaramos uma propriedade cuja classe é `EventEmitter` o qual possui um método `emit` que irá comunicar o componente pai que estará escutando por mudanças através do "binding" de propriedade. 
+Abaixo podemos ver o componente filho o qual renderiza através do template HTML um campo para preenchimento de texto. Para passar para o componente pai a informação que será digitada nesse campo: declaramos uma propriedade cuja classe é `EventEmitter` o qual possui um método `emit` que irá comunicar o componente pai que estará escutando por mudanças através do "binding" de evento. 
 
 ```
 ...
