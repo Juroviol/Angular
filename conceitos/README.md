@@ -140,7 +140,7 @@ export class AppComponent {
 
 #### Selector
 
-A CSS selector that tells Angular to create and insert an instance of this component wherever it finds the corresponding tag in template HTML. For example, if an app's HTML contains <app-hero-list></app-hero-list>, then Angular inserts an instance of the HeroListComponent view between those tags.
+Um seletor CSS que diz ao Angular para criar e inserir uma instância deste componente onde for encontrada a tag correspondente pelos templates HTML da aplicação. Por exemplo, se uma página HTML contém a tag <app-hero-list></app-hero-list>, então o Angular insere uma instância do componente correspondente entre as tags declaradas.
 
 #### Template
 
