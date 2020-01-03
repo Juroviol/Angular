@@ -146,7 +146,7 @@ Um seletor CSS que diz ao Angular para criar e inserir uma instância deste comp
 
 #### Template URL
 
-The module-relative address of this component's HTML template. Alternatively, you can provide the HTML template inline, as the value of the template property. This template defines the component's host view.
+O endereço relativo ao componente onde se encontra o template HTML. Uma outra forma de prover um template de HTML é através da propriedade `template`, dessa forma o HTML pode ser especificado diretamente na propriedade não precisando criar um arquivo.
 
 #### Styles
 
