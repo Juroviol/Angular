@@ -13,7 +13,7 @@
 
 ## NgModule
 
-Um NgModule especifica como as partes de uma aplicação Angular se integram. Cada aplicação tem no mínimo um módulo Angular, o módulo principal that you bootstrap para executar a aplicação, por convensão, é chamado de AppModule.
+Um NgModule especifica como as partes de uma aplicação Angular se integram. Cada aplicação tem no mínimo um módulo Angular, o módulo principal que você inicializa para executar a aplicação, por convensão, é chamado de AppModule.
 
 Se você usar o Angular CLI para gerar a aplicação, o módulo principal AppModule pode ser ilustrado como:
 
