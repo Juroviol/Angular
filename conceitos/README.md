@@ -171,6 +171,41 @@ Para que uma service esteja disponível para ser injetado em qualquer componente
 
 #### Input
 
+É possível passar informações entre componentes. Isso é possível criando um "canal" de recebimento de informação no componente o qual se deseje receber alguma informação. A informação pode ser qualquer tipo de dado, tanto dados primitivos, como textos, numeros, como também dados de objetos complexos.
+
+Abaixo podemos ver um componente filho o qual quer receber informações de outros componentes que o referenciam em seus template de HTML. A viabilização de recebimento de uma informação de um outro componente se dá através da inclusão da anotação @Input() na propriedade o qual quer receber informação:
+
+```
+...
+@Component({
+    selector: 'child',
+    template:'<span>{{informacao}}</span>'
+})
+export class Child {
+
+    @Input()
+    private informacao : string;
+
+}
+...
+```
+
+Na referencia do componente filho no componente pai é então passado o valor da propriedade `dado` do componente pai, cujo é inicializado com o valor: "uma informação importante!", para o componente filho através do "binding" de propriedade especificada pela notação `[informacao]="dado"`. Qualquer mudança na propriedade `dado` no componente pai, irá refletir automaticamente no componente filho. 
+
+```
+...
+@Component({
+    selector: 'parent',
+    template: '<child [informacao]="dado"></child>'
+})
+export class Parent {
+
+    private dado : string = "uma informação importante!";
+
+}
+...
+```
+
 #### Output
 
 ## Data binding
