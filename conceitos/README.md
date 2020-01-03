@@ -7,7 +7,7 @@
         - [Providers](#providers)
         - [Bootstrap](#bootstrap)
 - [Component](#component)
-    - [Metadata](#metadata)
+    - [Metadata](#metadata-component)
     - [Comunicação entre componentes](#comunicação-entre-componentes)
         - [Input](#input)
         - [Output](#output)
