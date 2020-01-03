@@ -176,3 +176,19 @@ Para que uma service esteja disponível para ser injetado em qualquer componente
 ## Data binding
 
 Sem um framework, você seria responsável por colocar os dados provenientes de serviços no HTML, controlar as atualizações desses dados e obter os dados a partir de ações dos usuários. Escrever código para controlar isso manualmente é tedioso, suscetível a erros e um pesadelo de entender como qualquer desenvolvedor experiente de front-end JavaScript pode afirmar.
+
+Em simples palavras data binding é a "mágica" que faz com que os dados da tela sejam automaticamente alterados quando mudanças ocorrem em propriedades na memória do componente e que os dados em memória nos componentes sejam alterados partir de ações do usuário como preenchimento de formulário por exemplo.
+
+```
+<li>{{hero.name}}</li>
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+<li (click)="selectHero(hero)"></li>
+```
+
+- A linha que contém a interpolação {{hero.name}} renderiza a propriedade hero.nome do componente dentro da tag HTML <li>.
+
+- A linha que contém o "binding" da propriedade [hero] passa o valor da propriedade selectedHero do componente pai para a propriedade hero do componente filho.
+
+- O "binding" do evento (click) invoca o método selectHero do componente quando o usuário clica no nome do herói.
+
+Data binding é importante não só para a comunicação entre template e componente como entre componentes pais e filhos.
