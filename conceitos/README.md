@@ -146,7 +146,7 @@ export class AppComponent {
 
 #### Styles
 
-#### Providers
+#### Providers <a id="providers-component"></a>
 
 ### Comunicação entre componentes
 
