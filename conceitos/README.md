@@ -255,7 +255,7 @@ export class Parent {
 ...
 ```
 
-Quando o dado é preenchido no filho é então invocado o método `atualizarInformacao` do componente pai recebendo o valor e associando a propriedade `dado` do componente pai. 
+Quando o dado é preenchido no filho é então invocado o método `atualizarDado` do componente pai recebendo o valor e associando a propriedade `dado` do componente pai. 
 
 Podemos modificar ainda no componente pai o nome do evento `(informacaoChange)` do "binding" de evento para apenas `(informacao)` pois o Angular sabe que toda variável declarada no componente do tipo `EventEmitter` e com a anotação @Output com o nome pode ser referenciado apenas com o nome excluído da palavra "Change".  
 
