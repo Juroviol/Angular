@@ -199,4 +199,4 @@ Two-way data binding (mais usado com formulários template-driven) combina "bind
 <input [(ngModel)]="hero.name">
 ```
 
-Com o two-way binding, o valor do dado da propriedade flui para o input a partir do componente assim como o "binding" de proprieda acima mencionado. Porém nesse caso, as mudanças realizadas pelo usuário no campo refletem na propriedade do componente como acontece no "binding" de evento.
+Com o two-way binding, o valor do dado da propriedade do componente reflete no input assim como o "binding" de propriedade acima mencionado. Porém nesse caso, as mudanças realizadas pelo usuário no campo refletem também na propriedade do componente, como acontece no "binding" de evento.
