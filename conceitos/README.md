@@ -146,6 +146,8 @@ export class AppComponent {
 
 #### Styles
 
+#### Providers
+
 ### Comunicação entre componentes
 
 #### Input
