@@ -13,10 +13,10 @@
         - [Template URL](#template-url)
         - [Styles](#styles)
         - [Providers](#providers-component)
-    - [Comunicação entre componentes](#comunicação-entre-componentes)
-        - [Input](#input)
-        - [Output](#output)
 - [Data binding](#data-binding)
+- [Comunicação entre componentes](#comunicação-entre-componentes)
+    - [Input](#input)
+    - [Output](#output)
 - Routes
 
 ## NgModule
@@ -167,9 +167,37 @@ As services especificadas nessa propriedade, no contexto de componente, só esta
 
 Para que uma service esteja disponível para ser injetado em qualquer componente, é preciso declará-lo na propriedade ["providers"](#providers-module) do módulo.
 
-### Comunicação entre componentes
+## Data binding
 
-#### Input
+Sem um framework, você seria responsável por colocar os dados provenientes de serviços no HTML, controlar as atualizações desses dados e obter os dados a partir de ações dos usuários. Escrever código para controlar isso manualmente é tedioso, suscetível a erros e um pesadelo de entender como qualquer desenvolvedor experiente de front-end JavaScript pode afirmar.
+
+Em simples palavras data binding é a "mágica" que faz com que os dados da tela sejam automaticamente alterados quando mudanças ocorrem em propriedades na memória do componente e que os dados em memória nos componentes sejam alterados a partir de ações do usuário, como preenchimento de formulário, por exemplo.
+
+```
+<li>{{hero.name}}</li>
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+<li (click)="selectHero(hero)"></li>
+```
+
+- A interpolação `{{hero.name}}` renderiza a propriedade hero.nome do componente dentro da tag HTML `<li>`.
+- O "binding" da propriedade `[hero]` passa o valor da propriedade selectedHero do componente pai para a propriedade hero do componente filho.
+- O "binding" do evento `(click)` invoca o método selectHero do componente quando o usuário clica no nome do herói.
+
+Data binding é importante não só para a comunicação entre template e componente como entre componentes pais e filhos.
+
+### Two-way data binding
+
+Two-way data binding (mais usado com formulários template-driven) combina "binding" de propriedade e evento em uma única notação. Abaixo um exemplo de utilização de two-way data binding com a diretiva ngModel.
+
+```
+<input [(ngModel)]="hero.name">
+```
+
+Com o two-way binding, o valor do dado da propriedade do componente reflete no input assim como o "binding" de propriedade acima mencionado. Porém nesse caso, as mudanças realizadas pelo usuário no campo refletem também na propriedade do componente, como acontece no "binding" de evento.
+
+## Comunicação entre componentes
+
+### Input
 
 É possível passar informações entre componentes. Isso é possível criando um "canal" de recebimento de informação no componente o qual se deseje receber alguma informação. A informação pode ser qualquer tipo de dado, tanto dados primitivos, como textos, numeros, como também dados de objetos complexos.
 
@@ -206,7 +234,7 @@ export class Parent {
 ...
 ```
 
-#### Output
+### Output
 
 Nos exemplos acima vimos como passar uma informação do componente pai para o componente filho utilizando o "binding" de propriedade. E quando precisamos passar alguma informação do componente filho para o pai? Nesse caso utilizaremos o "binding" de evento, no qual o pai ficará escutando por eventos emitidos pelo filho. 
 
@@ -287,6 +315,7 @@ A modificação acima mencionada nos trás a possibilidade de termos o two-way b
 })
 export class Child {
 
+    @Input()
     private informacao : string;
 
     @Output()
@@ -313,32 +342,3 @@ export class Parent {
 }
 ...
 ```
-
-
-## Data binding
-
-Sem um framework, você seria responsável por colocar os dados provenientes de serviços no HTML, controlar as atualizações desses dados e obter os dados a partir de ações dos usuários. Escrever código para controlar isso manualmente é tedioso, suscetível a erros e um pesadelo de entender como qualquer desenvolvedor experiente de front-end JavaScript pode afirmar.
-
-Em simples palavras data binding é a "mágica" que faz com que os dados da tela sejam automaticamente alterados quando mudanças ocorrem em propriedades na memória do componente e que os dados em memória nos componentes sejam alterados a partir de ações do usuário, como preenchimento de formulário, por exemplo.
-
-```
-<li>{{hero.name}}</li>
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
-<li (click)="selectHero(hero)"></li>
-```
-
-- A interpolação `{{hero.name}}` renderiza a propriedade hero.nome do componente dentro da tag HTML `<li>`.
-- O "binding" da propriedade `[hero]` passa o valor da propriedade selectedHero do componente pai para a propriedade hero do componente filho.
-- O "binding" do evento `(click)` invoca o método selectHero do componente quando o usuário clica no nome do herói.
-
-Data binding é importante não só para a comunicação entre template e componente como entre componentes pais e filhos.
-
-### Two-way data binding
-
-Two-way data binding (mais usado com formulários template-driven) combina "binding" de propriedade e evento em uma única notação. Abaixo um exemplo de utilização de two-way data binding com a diretiva ngModel.
-
-```
-<input [(ngModel)]="hero.name">
-```
-
-Com o two-way binding, o valor do dado da propriedade do componente reflete no input assim como o "binding" de propriedade acima mencionado. Porém nesse caso, as mudanças realizadas pelo usuário no campo refletem também na propriedade do componente, como acontece no "binding" de evento.
