@@ -118,6 +118,10 @@ O Angular CLI gera diversos arquivos, sendo alguns essenciais para a aplicação
 
 ## Incluindo jQuery
 
+A utilização do jQuery em qualquer aplicação web se dá através da utilização das das notações: $ (cifrão) ou jQuery. Em aplicações puramente HTML e JavaScript, os quais são interpretadas pelo navegador, não havendo nenhum processo de compilação, a utilização das notações $ e jQuery são permitidas mesmo que o arquivo da biblioteca não tenha sido incluída no HTML ou que o navegador não tenha carregado o arquivo da biblioteca.
+
+No caso do Angular por ser desenvolvido em TypeScript, uma linguagem tipada e que exige compilação do código escrito, para utilizar as notações $ e jQuery é preciso realizar algumas configurações, caso contrário o compilador TypesScript irá mostrar mensagens de erro.
+
 Para incluir o jQuery ao projeto para ser utilizado nos componentes e ou templates HTML primeiro vamos instalar a dependência NPM na nossa aplicação executando:
 
 ```
