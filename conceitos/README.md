@@ -1,11 +1,13 @@
 # Conceitos
 
 - [NgModule](#ngmodule)
-    - [Declarations](#declarations)
-    - [Imports](#imports)
-    - [Providers](#providers)
-    - [Bootstrap](#bootstrap)
+    - [Metadata](#metadata)
+        - [Declarations](#declarations)
+        - [Imports](#imports)
+        - [Providers](#providers)
+        - [Bootstrap](#bootstrap)
 - [Component](#component)
+    - [Metadata](#metadata)
     - [Comunicação entre componentes](#comunicação-entre-componentes)
         - [Input](#input)
         - [Output](#output)
