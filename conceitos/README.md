@@ -185,10 +185,18 @@ Em simples palavras data binding é a "mágica" que faz com que os dados da tela
 <li (click)="selectHero(hero)"></li>
 ```
 
-- A linha que contém a interpolação {{hero.name}} renderiza a propriedade hero.nome do componente dentro da tag HTML <li>.
-
-- A linha que contém o "binding" da propriedade [hero] passa o valor da propriedade selectedHero do componente pai para a propriedade hero do componente filho.
-
-- O "binding" do evento (click) invoca o método selectHero do componente quando o usuário clica no nome do herói.
+- A interpolação `{{hero.name}}` renderiza a propriedade hero.nome do componente dentro da tag HTML `<li>`.
+- O "binding" da propriedade `[hero]` passa o valor da propriedade selectedHero do componente pai para a propriedade hero do componente filho.
+- O "binding" do evento `(click)` invoca o método selectHero do componente quando o usuário clica no nome do herói.
 
 Data binding é importante não só para a comunicação entre template e componente como entre componentes pais e filhos.
+
+### Two-way data binding
+
+Two-way data binding (mais usado com formulários template-driven) combina "binding" de propriedade e evento em uma única notação. Abaixo um exemplo de utilização de two-way data binding com a diretiva ngModel.
+
+```
+<input [(ngModel)]="hero.name">
+```
+
+Com o two-way binding, o valor do dado da propriedade flui para o input a partir do componente assim como o "binding" de proprieda acima mencionado. Porém nesse caso, as mudanças realizadas pelo usuário no campo refletem na propriedade do componente como acontece no "binding" de evento.
