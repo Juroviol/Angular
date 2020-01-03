@@ -16,7 +16,7 @@
     - [Comunicação entre componentes](#comunicação-entre-componentes)
         - [Input](#input)
         - [Output](#output)
-- [Data binding](#databinding)
+- [Data binding](#data-binding)
 - Routes
 
 ## NgModule
