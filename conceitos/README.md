@@ -46,7 +46,9 @@ Após as linhas de importação podemos ver a classe com a anotação @NgModule.
 
 A anotação @NgModule identifica a classe AppModule como um NgModule. @NgModule recebe como parâmetro um objeto metadata que diz ao Angular como compilar e executar a aplicação.
 
-### Declarations
+### Metadata
+
+#### Declarations
 
 A propriedade declarations do módulo diz ao Angular quais componentes pertencem ao módulo que o está declarando. Conforme você vai criando componentes, adicione-os na propriedade declarations.
 
@@ -72,17 +74,17 @@ Um "declarável" deve pertencer a somente um módulo, então só o declare em um
 
 Apenas classes com a anotação @NgModule são especificadas na propriedade "imports".
 
-### Imports
+#### Imports
 
 A propriedade "imports" aparece exclusivamente no objeto metadata da anotação @NgModule. Ela diz ao Angular sobre os outros módulos que o módulo em questão precisa para funcionar.
 
 Os módulos especificados nessa propriedade são os módulos que exportam componentes, diretivas ou "pipes" que templates de componentes do módulo que os declaram, referenciam. Um exemplo é o caso do componente AppComponent, o qual referencia componentes, diretivas, ou "pipes" dos módulos BrowserModule, FormsModule, ou HttpClientModule. Um template de componente pode referenciar um componente, diretiva, ou "pipe" quando a classe referenciada é declarada no módulo que o referencia ou quando a classe é importada a partir de outro módulo.
 
-### Providers
+#### Providers
 
 A propriedade "providers" é onde se declara as "services" que a aplicação precisa. Quando é declarado as "services" nesta propriedade elas estão disponíveis para toda a aplicação. As "services" são classes que possuem a anotação @Injectable os quais possuem métodos com lógicas de negócios e de busca de dados a um back-end.
 
-### Bootstrap
+#### Bootstrap
 
 A aplicação Angular se inicia a partir de um processo chamado "bootstraping" a partir do ponto de entrada que é também conhecido como entryComponent. Além de realizar outras funções, o processo de inicialização cria os componentes declarados na propriedade e insere cada um dele no DOM do navegador.
 
@@ -111,6 +113,31 @@ Os conteúdos das propriedades são exibidos na tela através de páginas HTML a
 Um componente pode ser uma página inteira em HTML de uma aplicação ou site ou uma pequena porção de HTML com objetivos muito específicos. 
 
 A ideia principal dos componentes é que eles possam ser construídos para serem reutilizados por diversas partes da aplicação ou site.
+
+```
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <div>Hello World!</div>
+  `,
+  styles: []
+})
+export class AppComponent {
+  title = 'myapp';
+}
+```
+
+### Metadata
+
+#### Selector
+
+#### Template
+
+#### Template URL
+
+#### Styles
 
 ### Comunicação entre componentes
 
