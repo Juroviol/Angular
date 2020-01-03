@@ -235,7 +235,7 @@ export class Child {
 
 Quando o campo é preenchido é invocado o método `inputChanged`, graças ao "binding" de evento `(input)` oferecido pelo próprio Angular nos campos HTML. Ao invocar o método `inputChanged` então invocamos o método `emit` da variável `inputChange` passando a informação armazenada na propriedade `informacao` o qual foi preenchida graças a diretiva `ngModel` do campo.
 
-No referência do componente filho no componente pai declaramos um "binding" de evento no evento anteriormente declarado no filho: `informacaoChange` com a anotação @Output. 
+Na referência do componente filho no componente pai declaramos um "binding" de evento no evento anteriormente declarado no filho: `informacaoChange` com a anotação @Output. 
 
 ```
 ...
@@ -257,7 +257,7 @@ export class Parent {
 
 Quando o dado é preenchido no filho é então invocado o método `atualizarDado` do componente pai recebendo o valor e associando a propriedade `dado` do componente pai. 
 
-Podemos modificar ainda no componente pai o nome do evento `(informacaoChange)` do "binding" de evento para apenas `(informacao)` pois o Angular sabe que toda variável declarada no componente do tipo `EventEmitter` e com a anotação @Output com o nome pode ser referenciado apenas com o nome excluído da palavra "Change".  
+Podemos modificar ainda no componente pai o nome do evento `(informacaoChange)` do "binding" de evento para apenas `(informacao)` pois o Angular sabe que toda variável declarada no componente do tipo `EventEmitter` e com a anotação @Output com o nome acrescido de "Change" pode ser referenciado apenas com o nome excluído da palavra "Change".  
 
 ```
 ...
