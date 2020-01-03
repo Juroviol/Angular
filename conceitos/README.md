@@ -131,7 +131,7 @@ export class AppComponent {
 }
 ```
 
-### Metadata
+### Metadata <a id="metadata-component"></a>
 
 #### Selector
 
