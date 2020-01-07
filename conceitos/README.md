@@ -113,11 +113,66 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
 ```
 
-#### Exports 
+#### Exports
 
 A propriedade define quais componentes, diretivas e pipes o módulo exporta de forma que outros módulos possam utilizar. Caso o módulo seja importado em outro módulo, e esse outro módulo utilize um componente, diretiva ou "pipe" sem que o módulo importado não os exporte, o Angular mostrará mensagens de erro.
 
 Todo componente, diretiva e pipe exportado por um módulo precisa estar obrigatoriamente declarado na propriedade "declarations" deste mesmo módulo.
+
+O objetivo de se exportar componentes, diretivas e "pipes" para outros módulos utilizarem, é para manter a estrutura da aplicação mais organizada de forma que esses códigos possam ser facilmente utilizado entre diversos módulos se for necessário posteriormente. 
+
+Um bom exemplo é o Angular Material, o qual nos disponibiliza diversos componentes já construídos com estilos do Metarial Design para que possamos contruir a nossa aplicação de forma mais rápida, aproveitando esses componentes já construídos. Isso só é possível por que o Angular Material foi construído de forma a ser re-utilizado pela comunidade. Portanto é um módulo em Angular que declara na propriedade "exports" diversos componentes para que possamos utilizá-los. Pela internet encontraremos diversas bibliotecas do Angular que já foram construídas nos quais podemos usufruir para termos mais agilidade.
+
+Abaixo podemos ver um componente que renderiza um simples texto na tela.
+
+```
+...
+@Component({
+    selector: "common-component",
+    template: "<span>I'm common component!</span>"
+})
+export class CommonComponent {}
+...
+```
+
+O componente criado é então declarado no módulo o qual pertence, conforme explicado no tópico [Componentes](#componente). O componente também é incluído na propriedade "exports" do módulo, pois queremos que esse componente possa ser utilizado por outro módulo.
+
+```
+...
+@NgModule({
+    imports: [BrowserModule, FormsModule],
+    declarations: [CommonComponent],
+    providers: [],
+    exports: [CommonComponent]
+})
+export class CommonModule {}
+...
+```
+
+No módulo o qual queremos utilizar o `CommonComponent` declaramos o seu módulo na propriedade "imports". Não há necessidade de declarar o `CommonComponent` na propriedade "declarations", pois essa propriedade serve para declarar apenas componentes, diretivas e "pipes" nativos do módulo, o qual não pertencem a outros módulos.  
+
+```
+...
+@NgModule({
+    imports: [BrowserModule, FormsModule, CommonModule],
+    declarations: [AppComponent],
+    providers: []
+})
+export class AppModule {}
+...
+```
+
+Então no componente onde queremos utilizar o `CommonComponent` apenas o referenciamos.
+
+```
+...
+@Component({
+    selector: "app",
+    template: "<common-component></common-component>"
+})
+export class AppComponent {}
+...
+```
 
 ## Component
 
