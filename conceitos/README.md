@@ -121,7 +121,7 @@ Todo componente, diretiva e pipe exportado por um módulo precisa estar obrigato
 
 O objetivo de se exportar componentes, diretivas e "pipes" para outros módulos utilizarem, é para manter a estrutura da aplicação mais organizada de forma que esses códigos possam ser facilmente utilizado entre diversos módulos se for necessário posteriormente. 
 
-Um bom exemplo é o Angular Material, o qual nos disponibiliza diversos componentes já construídos com estilos do Metarial Design para que possamos contruir a nossa aplicação de forma mais rápida, aproveitando esses componentes já construídos. Isso só é possível por que o Angular Material foi construído de forma a ser re-utilizado pela comunidade. Portanto é um módulo em Angular que declara na propriedade "exports" diversos componentes para que possamos utilizá-los. Pela internet encontraremos diversas bibliotecas do Angular que já foram construídas nos quais podemos usufruir para termos mais agilidade.
+Um bom exemplo é o [Angular Material](https://material.angular.io/), o qual nos disponibiliza diversos componentes já construídos com estilos do Metarial Design para que possamos contruir a nossa aplicação de forma mais rápida, aproveitando esses componentes já construídos. Isso só é possível por que o Angular Material foi construído de forma a ser re-utilizado pela comunidade. Portanto é um módulo em Angular que declara na propriedade "exports" diversos componentes para que possamos utilizá-los. Pela internet encontraremos diversas bibliotecas do Angular que já foram construídas nos quais podemos usufruir para termos mais agilidade.
 
 Abaixo podemos ver um componente que renderiza um simples texto na tela.
 
@@ -135,7 +135,7 @@ export class CommonComponent {}
 ...
 ```
 
-O componente criado é então declarado no módulo o qual pertence, conforme explicado no tópico [Componentes](#componente). O componente também é incluído na propriedade "exports" do módulo, pois queremos que esse componente possa ser utilizado por outro módulo.
+O componente criado é então declarado no módulo o qual pertence, conforme explicado no tópico [Componente](#component). O componente também é incluído na propriedade "exports" do módulo, pois queremos que esse componente possa ser utilizado por outro módulo.
 
 ```
 ...
