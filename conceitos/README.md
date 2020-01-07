@@ -6,6 +6,7 @@
         - [Imports](#imports)
         - [Providers](#providers)
         - [Bootstrap](#bootstrap)
+        - [Exports](#exports)
 - [Component](#component)
     - [Metadata](#metadata-component)
         - [Selector](#selector)
@@ -111,6 +112,12 @@ import { AppModule } from './app/app.module';
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
 ```
+
+#### Exports 
+
+A propriedade define quais componentes, diretivas e pipes o módulo exporta de forma que outros módulos possam utilizar. Caso o módulo seja importado em outro módulo, e esse outro módulo utilize um componente, diretiva ou "pipe" sem que o módulo importado não os exporte, o Angular mostrará mensagens de erro.
+
+Todo componente, diretiva e pipe exportado por um módulo precisa estar obrigatoriamente declarado na propriedade "declarations" deste mesmo módulo.
 
 ## Component
 
