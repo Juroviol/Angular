@@ -18,6 +18,7 @@
 - [Comunicação entre componentes](#comunicação-entre-componentes)
     - [Input](#input)
     - [Output](#output)
+- Validação de formulários
 - Routes
 
 ## NgModule
@@ -404,3 +405,5 @@ export class Parent {
 }
 ...
 ```
+
+## Validação de formulários
