@@ -416,4 +416,52 @@ A primeira forma de validação de formulários que vamos abordar é a "template
 
 A separação do código responsável por validar dados de preenchimento é realizado através da utilização de [diretivas](#Diretivas).
 
+
+
+```
+@Component
+export class MyComponent {
+    cpf: string;
+}
+```
+
+```
+<form>
+<input type="text" name="cpf" [(ngModel)]="cpf" />
+</form>
+```
+
+```
+<form>
+<input type="text" name="cpf" [(ngModel)]="cpf" required />
+</form>
+```
+
+```
+<form #myForm="ngForm">
+<input type="text" name="cpf" [(ngModel)]="cpf" required />
+</form>
+```
+
+```
+<form #myForm="ngForm">
+<input type="text" name="cpf" [(ngModel)]="cpf" required />
+<span>Campo obrigatório.</span>
+</form>
+```
+
+```
+<form #myForm="ngForm">
+<input type="text" name="cpf" [(ngModel)]="cpf" required #cpf="ngModel" />
+<span>Campo obrigatório.</span>
+</form>
+```
+
+```
+<form #myForm="ngForm">
+<input type="text" name="cpf" [(ngModel)]="cpf" required #cpf="ngModel" />
+<span *ngIf="cpf.invalid">Campo obrigatório.</span>
+</form>
+```
+
 ### Reactive forms
