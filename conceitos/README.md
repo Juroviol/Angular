@@ -18,8 +18,8 @@
 - [Comunicação entre componentes](#comunicação-entre-componentes)
     - [Input](#input)
     - [Output](#output)
-- Validação de formulários
-- Routes
+- [Validação de formulários](#validação-de-formulários)
+    - [Template driven](#template-driven)
 
 ## NgModule
 
@@ -407,3 +407,5 @@ export class Parent {
 ```
 
 ## Validação de formulários
+
+### Template driven
