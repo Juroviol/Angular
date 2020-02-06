@@ -416,14 +416,23 @@ A primeira forma de validação de formulários que vamos abordar é a "template
 
 A separação do código responsável por validar dados de preenchimento é realizado através da utilização de [diretivas](#Diretivas).
 
+Abaixo ilustrarei em código como utilizar validadores padrões e construir um validador customizado e um customizado e assíncrono com interação com webservice.
 
+Abaixo temos nosso componente simples que contém apenas uma propriedade `cpf`. 
 
 ```
-@Component
+...
+@Component({
+  selector: 'my-component'
+  templateUrl:'template.html'
+})
 export class MyComponent {
     cpf: string;
 }
+...
 ```
+
+No arquivo `template.html` referenciado na anotação @Component do nosso componente temos um campo de texto que irá receber os dados que serão colocados na propriedade `cpf`. 
 
 ```
 <form>
@@ -431,17 +440,24 @@ export class MyComponent {
 </form>
 ```
 
+Utilizando o atributo `required` do pŕoprio HTML, iremos dizer o Angular que esse campo é obrigatório.
+
 ```
 <form>
 <input type="text" name="cpf" [(ngModel)]="cpf" required />
 </form>
 ```
 
+Agora vamos colocar em pŕatica o conceito de template driven. Vamos criar uma varíavel `myForm` que receberá o objeto `NgForm` associado ao elemento `<form>` do nosso HTML. Nesse caso estamos pegando a instância deste objeto e guardando na nossa variável `myForm` que foi criada através da notação com `#` "hashtag". Com isso passaremos a ter acesso a diversas propriedades que o objeto do tipo `NgForm` oferece para referenciarmos no nosso próprio HTML.
+
 ```
 <form #myForm="ngForm">
 <input type="text" name="cpf" [(ngModel)]="cpf" required />
 </form>
 ```
+
+Vamos colocar uma mensagem em um `span` para ser exibido quando o campo não for preenchido. Neste momento a mensagem sempre será exibida, independente de estar preenchido ou não.
+
 
 ```
 <form #myForm="ngForm">
@@ -449,6 +465,8 @@ export class MyComponent {
 <span>Campo obrigatório.</span>
 </form>
 ```
+
+Da mesma forma, iremos criar uma variável `cpf` que recebrá o objeto `NgModel` associado ao elemento `<input>` que possui a diretiva `ngModel`. Da mesma forma que no caso do form, teremos acesso a propriedades que o objeto do tipo `NgModel` oferece para referenciarmos no nosso próprio HTML a fim de controlarmos o melhor momento em que a mensagem de feedback deve ser exibida ao usuário.     
 
 ```
 <form #myForm="ngForm">
@@ -456,6 +474,8 @@ export class MyComponent {
 <span>Campo obrigatório.</span>
 </form>
 ```
+
+Agora que temos uma varíável que possui propriedades relativas ao estado de validação do campo, podemos utilizar destas propriedades para exibir a mensagem somente quando o campo estiver inválido. A propriedade que vamos utilizar é a `invalid` que nesse caso ao entrar na tela já estará inválido (por conta do atributo `required`) e a mensagem já será exibida, e não é esse o efeito que queremos. Sendo assim vamos prosseguir.
 
 ```
 <form #myForm="ngForm">
@@ -463,6 +483,8 @@ export class MyComponent {
 <span *ngIf="cpf.invalid">Campo obrigatório.</span>
 </form>
 ```
+
+Outra propriedade de estado do campo é a `touched` que ficará como verdadeiro quando o usuário focar no campo.
 
 ```
 <form #myForm="ngForm">
