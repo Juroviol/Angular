@@ -408,4 +408,10 @@ export class Parent {
 
 ## Validação de formulários
 
+Em toda aplicação que possui formulários é preciso validar se os dados fornecidos pelos usuários estão de acordo com as regras que a aplicação esperam que sejam contempladas. Em Angular, validar formulários é fácil, não sendo necessário a importação de bibliotecas de terceiros em JavaScript. Com o Angular conseguimos construir validadores baseados em regras customizadas além das que o próprio Angular nos provê. Existe ainda a possibilidade de construir validadores que interagem com webservices, onde a regra é processada em outra aplicação back-end.
+
 ### Template driven
+
+A primeira forma de validação de formulários que vamos abordar é a "template driven form validation", o qual é a minha preferida. Nessa forma de validação nós separamos o código que irá validar os dados preenchido nos campos do código que ficará no nosso componente. Pois não queremos "poluir" nosso código do componente com diversos códigos contendo regras de validação de dados.
+
+### Reactive forms
