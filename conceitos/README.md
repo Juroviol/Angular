@@ -464,4 +464,35 @@ export class MyComponent {
 </form>
 ```
 
+```
+<form #myForm="ngForm">
+<input type="text" name="cpf" [(ngModel)]="cpf" required #cpf="ngModel" />
+<span *ngIf="cpf.touched && cpf.invalid">Campo obrigatório.</span>
+</form>
+```
+
+
+```
+<form #myForm="ngForm">
+<input type="text" name="cpf" [(ngModel)]="cpf" required #cpf="ngModel" />
+<span *ngIf="(myForm.submitted || cpf.touched) && cpf.invalid">Campo obrigatório.</span>
+</form>
+```
+
+
+```
+<form #myForm="ngForm">
+<input type="text" name="cpf" [(ngModel)]="cpf" required pattern="^\d{3}.\d{3}.\d{3}-\d{2}$" #cpf="ngModel" />
+<span *ngIf="(myForm.submitted || cpf.touched) && cpf.invalid">Campo obrigatório.</span>
+</form>
+```
+
+```
+<form #myForm="ngForm">
+<input type="text" name="cpf" [(ngModel)]="cpf" required pattern="^\d{3}\d{3}\d{3}\d{2}$|^\d{3}.\d{3}.\d{3}-\d{2}$" #cpf="ngModel" />
+<span *ngIf="(myForm.submitted || cpf.touched) && cpf.errors.required">Campo obrigatório.</span>
+<span *ngIf="(myForm.submitted || cpf.touched) && cpf.errors.pattern">CPF inválido.</span>
+</form>
+```
+
 ### Reactive forms
