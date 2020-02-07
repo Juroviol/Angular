@@ -418,7 +418,7 @@ A separação do código responsável por validar dados de preenchimento é real
 
 Abaixo ilustrarei em código como utilizar validadores padrões e construir um validador customizado e um customizado e assíncrono com interação com webservice.
 
-Abaixo temos nosso componente simples que contém apenas uma propriedade `cpf`. 
+Abaixo temos nosso componente simples que contém apenas uma propriedade `cpf` e um método que será invocado quando clicarmos no botão "Salvar". 
 
 ```
 ...
@@ -428,6 +428,7 @@ Abaixo temos nosso componente simples que contém apenas uma propriedade `cpf`.
 })
 export class MyComponent {
     cpf: string;
+    salvar() {}
 }
 ...
 ```
@@ -435,24 +436,27 @@ export class MyComponent {
 No arquivo `template.html` referenciado na anotação @Component do nosso componente temos um campo de texto que irá receber os dados que serão colocados na propriedade `cpf`. 
 
 ```
-<form>
+<form (submit)="salvar()">
 <input type="text" name="cpf" [(ngModel)]="cpf" />
+<button>Salvar</button>
 </form>
 ```
 
 Utilizando o atributo `required` do pŕoprio HTML, iremos dizer o Angular que esse campo é obrigatório.
 
 ```
-<form>
+<form (submit)="salvar()">
 <input type="text" name="cpf" [(ngModel)]="cpf" required />
+<button>Salvar</button>
 </form>
 ```
 
 Agora vamos colocar em pŕatica o conceito de template driven. Vamos criar uma varíavel `myForm` que receberá o objeto `NgForm` associado ao elemento `<form>` do nosso HTML. Nesse caso estamos pegando a instância deste objeto e guardando na nossa variável `myForm` que foi criada através da notação com `#` "hashtag". Com isso passaremos a ter acesso a diversas propriedades que o objeto do tipo `NgForm` oferece para referenciarmos no nosso próprio HTML.
 
 ```
-<form #myForm="ngForm">
+<form #myForm="ngForm" (submit)="salvar()">
 <input type="text" name="cpf" [(ngModel)]="cpf" required />
+<button>Salvar</button>
 </form>
 ```
 
@@ -460,54 +464,65 @@ Vamos colocar uma mensagem em um `span` para ser exibido quando o campo não for
 
 
 ```
-<form #myForm="ngForm">
+<form #myForm="ngForm" (submit)="salvar()">
 <input type="text" name="cpf" [(ngModel)]="cpf" required />
 <span>Campo obrigatório.</span>
+<button>Salvar</button>
 </form>
 ```
 
 Da mesma forma, iremos criar uma variável `cpf` que recebrá o objeto `NgModel` associado ao elemento `<input>` que possui a diretiva `ngModel`. Da mesma forma que no caso do form, teremos acesso a propriedades que o objeto do tipo `NgModel` oferece para referenciarmos no nosso próprio HTML a fim de controlarmos o melhor momento em que a mensagem de feedback deve ser exibida ao usuário.     
 
 ```
-<form #myForm="ngForm">
+<form #myForm="ngForm" (submit)="salvar()">
 <input type="text" name="cpf" [(ngModel)]="cpf" required #cpf="ngModel" />
 <span>Campo obrigatório.</span>
+<button>Salvar</button>
 </form>
 ```
 
 Agora que temos uma varíável que possui propriedades relativas ao estado de validação do campo, podemos utilizar destas propriedades para exibir a mensagem somente quando o campo estiver inválido. A propriedade que vamos utilizar é a `invalid` que nesse caso ao entrar na tela já estará inválido (por conta do atributo `required`) e a mensagem já será exibida, e não é esse o efeito que queremos. Sendo assim vamos prosseguir.
 
 ```
-<form #myForm="ngForm">
+<form #myForm="ngForm" (submit)="salvar()">
 <input type="text" name="cpf" [(ngModel)]="cpf" required #cpf="ngModel" />
 <span *ngIf="cpf.invalid">Campo obrigatório.</span>
+<button>Salvar</button>
 </form>
 ```
 
-Outra propriedade de estado do campo é a `touched` que ficará como verdadeiro quando o usuário focar no campo.
+Outra propriedade de estado do campo é a `touched` que ficará como verdadeiro quando o usuário focar no campo. Dessa forma a mensagem não será mais exibida quando entrarmos na tela, somente se caso o usuário tocar no campo.
 
 ```
-<form #myForm="ngForm">
+<form #myForm="ngForm" (submit)="salvar()">
 <input type="text" name="cpf" [(ngModel)]="cpf" required #cpf="ngModel" />
 <span *ngIf="cpf.touched && cpf.invalid">Campo obrigatório.</span>
+<button>Salvar</button>
 </form>
 ```
 
+Caso o usuário entre na tela e imediatamente clique no botão "Salvar" a mensagem não de erro não será exibida, pois estamos impondo a condição de que a mensagem só seja exibida caso ele tenha sido tocado e esteja inválido. Como o campo não terá sido tocado, a mensagem não será exibida. Portanto vamos adicionar mais uma verificação na nossa condição para que a mensagem seja exibida quando o formulário seja submetido também. Para isso vamos utilizar a propriedade `submitted` que está disponível na variável que declaramos anteriormente: `myForm`.
 
 ```
-<form #myForm="ngForm">
+<form #myForm="ngForm" (submit)="salvar()">
 <input type="text" name="cpf" [(ngModel)]="cpf" required #cpf="ngModel" />
 <span *ngIf="(myForm.submitted || cpf.touched) && cpf.invalid">Campo obrigatório.</span>
+<button>Salvar</button>
 </form>
 ```
 
+Agora vamos adicionar uma nova regra de validação para o formato do cpf preenchido. Já temos a regra de que o campo é obrigatório, graças ao atributo `required`. Para o formato do cpf vamos adicionar o atributo `pattern` que recebrá uma expressão regular.
 
 ```
 <form #myForm="ngForm">
-<input type="text" name="cpf" [(ngModel)]="cpf" required pattern="^\d{3}.\d{3}.\d{3}-\d{2}$" #cpf="ngModel" />
+<input type="text" name="cpf" [(ngModel)]="cpf" required pattern="^\d{3}\d{3}\d{3}\d{2}$|^\d{3}.\d{3}.\d{3}-\d{2}$" #cpf="ngModel" />
 <span *ngIf="(myForm.submitted || cpf.touched) && cpf.invalid">Campo obrigatório.</span>
 </form>
 ```
+
+Com a adição da nova regra, a mensagem de campo obrigatório será exibida quando preenchermos o campo com um formato inválido de CPF. Para resolver esse problema, ao invés de utilizar a expressão `cpf.invalid` na condição, iremos usar a expressão que se refere a invalidez pela regra de obrigatoriedade. O objeto do tipo `NgModel` possui uma propriedade chamada `errors` o qual é uma lista contendo os erros pelo qual o campo se tornou inválido. Dessa forma conseguimos saber por qual violação de regra o campo se tornou inválido.
+
+Vamos então mudar a expressão: `cpf.invalid`, para `cpf.errors.required`, e para sabermos se o campo está inválido pela violação da regra de formato, a expressão: `cpf.errors.pattern`. 
 
 ```
 <form #myForm="ngForm">
