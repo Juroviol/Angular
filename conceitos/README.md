@@ -20,6 +20,9 @@
     - [Output](#output)
 - [Validação de formulários](#validação-de-formulários)
     - [Template driven](#template-driven)
+    - [Construindo um validador](#construindo-um-validador)
+        - [Sincrono](#sincrono)
+        - [Assíncrono](#assíncrono)
 
 ## NgModule
 
