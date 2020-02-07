@@ -532,4 +532,27 @@ Vamos então mudar a expressão: `cpf.invalid`, para `cpf.errors.required`, e pa
 </form>
 ```
 
+Agora que nosso formulário está tendo sua validação controlada com o auxílio do Angular, qualquer campo que esteja inválido tornará o formulário como um todo inválido e se todos os campos estiverem válido, também o formulário estará como um todo válido. Sabendo disso, podemos impedir uma chamada a um serviço back-end caso o formulário esteja inválido. Assim como os objetos do tipo `NgModel` possuem a propriedade `invalid`, o objeto do tipo `NgForm` também. Então precisamos ter a variável `myForm` criada em escopo de template disponível no nosso componente onde tem o método salvar.
+
+Vamos então incluir a propriedade `myForm` no nosso componente do tipo `NgForm` anotada com a anotação @ViewChild e o nome da variável criada no template: `#myForm="ngForm"`. Essa anotação irá dizer ao Angular para injetar o valor da variável `myForm` em nosso componente quando o mesmo for construído.
+
+```
+...
+@Component({
+  selector: 'my-component'
+  templateUrl:'template.html'
+})
+export class MyComponent {
+
+    cpf: string;
+    
+    @ViewChild('myForm')
+    myForm: NgForm;
+    
+    salvar() {}
+    
+}
+...
+```
+
 ### Reactive forms
