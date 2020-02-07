@@ -555,4 +555,30 @@ export class MyComponent {
 ...
 ```
 
+E agora no nosso método salvar podemos verificar se o formulário está válido, e no caso impedirmos que o procedimento do processo enquanto o usuário não regularizar os dados conforme as regras especificadas no template.
+
+```
+...
+@Component({
+  selector: 'my-component'
+  templateUrl:'template.html'
+})
+export class MyComponent {
+
+    cpf: string;
+    
+    @ViewChild('myForm')
+    myForm: NgForm;
+    
+    salvar() {
+        if (this.myForm.valid) {
+        ...
+        }
+    }
+    
+}
+...
+```
+
+
 ### Reactive forms
