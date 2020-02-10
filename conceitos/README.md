@@ -20,7 +20,7 @@
     - [Output](#output)
 - [Validação de formulários](#validação-de-formulários)
     - [Template driven](#template-driven)
-    - [Construindo um validador](#construindo-um-validador)
+    - [Validador customizado](#validador-customizado)
         - [Sincrono](#sincrono)
         - [Assíncrono](#assíncrono)
 
@@ -585,3 +585,11 @@ export class MyComponent {
 
 
 ### Reactive forms
+
+## Validador customizado
+
+Além dos validadores já providos pelo Angular, é possível construir um validador baseado em regras de acordo com a necessidade. As regras de um validador customizado pode estar na pŕopria aplicação Angular ou em uma outra aplicação. Para o caso da existência das regras na pŕopria aplicação Angular, implementamos um validador sincrono e para o caso das regras em outra aplicação, um validador assíncrono.
+
+### Sincrono
+
+### Assíncrono
